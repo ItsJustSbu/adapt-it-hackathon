@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f6F7FB"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:elevation="3dp"
+            android:gravity="left"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_marginTop="24dp"
+                android:id="@+id/set"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="18dp"
+                        android:id="@+id/setimage"
+                        android:layout_marginStart="24dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:padding="4dp"
+                        android:src="@drawable/settings"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="right"
+                android:id="@+id/logoutb"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/logimage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:padding="4dp"
+                        android:src="@drawable/logout"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <com.github.florent37.shapeofview.shapes.ArcView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="3dp"
+            app:shape_arc_height="35dp"
+            app:shape_arc_position="bottom">
+
+
+            <FrameLayout
+                android:background="@color/white"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"/>
+
+            <LinearLayout
+                android:id="@+id/layout_view_center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="32dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/user"/>
+
+                    <ImageView
+                        android:id="@+id/verii"
+                        android:layout_width="40dp"
+                        android:clickable="true"
+                        android:layout_height="40dp"
+                        android:layout_gravity="end|bottom"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/verified" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/accName1"
+                    android:text="Mahdiyyah"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Child"
+                    android:id="@+id/relationship1"
+                    android:textColor="@color/greyDARK"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:id="@+id/part1"
+                    android:visibility="visible"
+                    android:layout_margin="22dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginEnd="40dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+                            <LinearLayout
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:gravity="center"
+                                android:layout_marginLeft="5dp"
+                                android:layout_alignParentStart="true"
+                                android:elevation="2dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:padding="10dp"
+                                android:id="@+id/editpfrlp"
+                                android:background="@drawable/greycircle">
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/editprfl"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="end"
+                            android:gravity="end"
+                            android:layout_weight="1">
+                            <LinearLayout
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:gravity="center"
+                                android:elevation="2dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:padding="10dp"
+                                android:id="@+id/famOrnews"
+                                android:background="@drawable/greycircle">
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:id="@+id/kidincom"
+                                    android:src="@drawable/addfam"/>
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:id="@+id/kidcomp"
+                                    android:src="@drawable/news"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:id="@+id/part2"
+                    android:visibility="visible"
+                    android:layout_margin="22dp">
+
+
+                    <!--                    <LinearLayout-->
+                    <!--                        android:layout_width="100dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:orientation="vertical"-->
+                    <!--                        android:layout_marginLeft="2dp"-->
+                    <!--                        android:gravity="center">-->
+
+
+                    <LinearLayout
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:layout_alignParentStart="true"
+                        android:elevation="2dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="10dp"
+                        android:id="@+id/editprf"
+                        android:background="@drawable/greycircle"
+                        android:layout_marginBottom="5dp">
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/editprfl"/>
+                    </LinearLayout>
+
+
+
+                    <!--                        <TextView-->
+                    <!--                            android:layout_width="wrap_content"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:text="Settings"-->
+                    <!--                            android:textColor="@color/md_grey_400"-->
+                    <!--                            android:textAllCaps="true"-->
+                    <!--                            android:textSize="12sp" />-->
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:elevation="2dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="@drawable/greycircle"
+                        android:id="@+id/tinder">
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/icon_grey"/>
+
+
+
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="Profile"-->
+                        <!--                            android:textColor="@color/md_grey_400"-->
+                        <!--                            android:textAllCaps="true"-->
+                        <!--                            android:gravity="center"-->
+                        <!--                            android:textSize="12sp" />-->
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center"
+                        android:elevation="2dp"
+                        android:padding="10dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/news"
+                        android:background="@drawable/greycircle"
+                        android:layout_marginBottom="5dp">
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:id="@+id/newsimg"
+                            android:src="@drawable/news"/>
+
+
+
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="Sign out"-->
+                        <!--                            android:gravity="center"-->
+                        <!--                            android:textColor="@color/md_grey_400"-->
+                        <!--                            android:textAllCaps="true"-->
+                        <!--                            android:maxLines="2"-->
+                        <!--                            android:textSize="12sp" />-->
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+
+        </com.github.florent37.shapeofview.shapes.ArcView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:weightSum="30"
+            android:paddingStart="35dp"
+            android:paddingEnd="35dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/aboutmedone"
+                android:elevation="5dp"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="20dp"
+                android:background="@drawable/aboutmeback"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    android:text="About Me" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="6"
+                    android:id="@+id/aboutmetext"
+                    android:textColor="@color/greyDARK"
+                    android:text="Lorem ipsum dolor sit amet,ed facilisis mi sed turpis pretium, a lobored facilisis mi sed turpis pretium, a lobored facilisis mi sed turpis pretium, a lobored facilisis mi sed turpis pretium, a lobor ed facilisis mi sed turpis pretium, a lobortis nibh mattis." />
+            </LinearLayout>
+
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/sldview"
+                android:layout_width="match_parent"
+                app:sliderIndicatorSelectedColor="@color/blue"
+                app:sliderIndicatorUnselectedColor="@color/greyDARK"
+                android:layout_height="110dp"
+                android:layout_marginVertical="25dp"
+                app:sliderAnimationDuration="800"
+                app:sliderAutoCycleDirection="right"
+                app:sliderIndicatorAnimationDuration="800"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderCircularHandlerEnabled="true"
+                app:sliderIndicatorMargin="18dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="4dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderScrollTimeInSec="3"
+                app:sliderStartAutoCycle="true"/>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

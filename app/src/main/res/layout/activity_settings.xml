@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:id="@+id/ll"-->
+<!--        android:gravity="start"-->
+<!--        android:layout_height="wrap_content">-->
+
+        <ImageView
+            android:id="@+id/backsg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/backarraw"
+            app:tint="@color/orange" />
+
+        <TextView
+            android:id="@+id/titsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Settings"
+            android:textSize="28dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/backsg"
+            app:layout_constraintStart_toEndOf="@+id/backsg"
+            app:layout_constraintTop_toTopOf="@+id/backsg" />
+
+<!--    </LinearLayout>-->
+
+
+
+    <LinearLayout
+            android:layout_marginStart="24dp"
+        android:id="@+id/boxselector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:orientation="vertical"
+        android:background="@drawable/parchi_notselected"
+            android:layout_marginEnd="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/titsg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/top"
+            android:layout_marginBottom="1dp"
+            android:layout_marginTop="9dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:clickable="true"
+                    android:id="@+id/location"
+                    android:focusable="true"
+                    android:layout_marginLeft="12dp"
+                    android:textColor="@color/white"
+                    android:paddingHorizontal="15dp"
+                    android:background="@drawable/settingsnotselected"
+                    android:text="Location"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:clickable="true"
+                    android:id="@+id/heightftt"
+                    android:focusable="true"
+                    android:layout_marginLeft="12dp"
+                    android:textColor="@color/white"
+                    android:paddingHorizontal="17dp"
+                    android:background="@drawable/settingsnotselected"
+                    android:text="Height (ft.)"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:layout_marginRight="12dp"
+                    android:textColor="@color/white"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:id="@+id/race"
+                    android:paddingHorizontal="15dp"
+                    android:background="@drawable/settingsnotselected"
+                    android:text="Race"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/middle"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:textColor="@color/white"
+                    android:focusable="true"
+                    android:paddingHorizontal="15dp"
+                    android:clickable="true"
+                    android:id="@+id/usernamee"
+                    android:background="@drawable/settingsselected"
+                    android:text="Username"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:layout_marginRight="4dp"
+                    android:textColor="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/emailll"
+                    android:paddingHorizontal="15dp"
+                    android:background="@drawable/settingsnotselected"
+                    android:text="Email address"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/password"
+                    android:paddingHorizontal="15dp"
+                    android:background="@drawable/settingsnotselected"
+                    android:text="Password"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/bottom"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="9dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:layout_marginLeft="7dp"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:id="@+id/gender"
+                    android:textColor="@color/white"
+                    android:paddingHorizontal="15dp"
+                    android:background="@drawable/settingsnotselected"
+                    android:text="Gender"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:id="@+id/heightinn"
+                    android:textColor="@color/white"
+                    android:paddingHorizontal="15dp"
+                    android:background="@drawable/settingsnotselected"
+                    android:text="Height (in.)"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingVertical="5dp"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:id="@+id/religionn"
+                    android:textColor="@color/white"
+                    android:paddingHorizontal="15dp"
+                    android:background="@drawable/settingsnotselected"
+                    android:text="Religion"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:id="@+id/dyna"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/titsg"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Religion"
+            android:visibility="gone"
+            android:layout_marginTop="87dp"
+            android:id="@+id/spinnerheading"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_height="wrap_content">
+        </TextView>
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                style="@style/SpinnerTheme"
+                android:visibility="gone"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="25dp"
+                android:layout_height="60dp" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+            android:visibility="visible"
+            android:id="@+id/tvvtit"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="25dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tvv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegisterstg"
+            style="@style/btnStyle"
+            android:layout_width="match_parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="24dp"
+            android:text="Save Changes" />
+
+</LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
