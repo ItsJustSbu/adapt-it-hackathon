@@ -14,9 +14,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,12 +48,15 @@ public class RegisterActivity extends AppCompatActivity {
     static String email;
     static String password;
 
+    FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
         typee = "Parent";
+        auth = FirebaseAuth.getInstance();
 
         Animation animation = AnimationUtils.loadAnimation(RegisterActivity.this, R.anim.bounce);
 
@@ -96,156 +105,24 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String[] nameParts = etUsername.getText().toString().split(" ");
-//
-//                for (int i = 0; i < nameParts.length; i++) {
-//                    nameParts[i] = Constants.capFirst(nameParts[i]);
-//                }
 
-                username = Constants.capFirst(Username.getText().toString()).trim();
+
+                username = Username.getText().toString();
                 email = Email.getText().toString().replace(" ","");
                 password = Password.getText().toString().replace(" ","");
 
-
-                if (!Constants.validaInputs2(username, email, password,RegisterActivity.this)) return;
-
-                username=Constants.escapeSpecialCharacters(username);
-                email=Constants.escapeSpecialCharacters(email);
-                password= Constants.escapeSpecialCharacters(Constants.encryptSHA256(password));
-
-                String[] values = {username, email,password, typee, Integer.toString(R.drawable.user), "1"};
-                Constants.firstTimeVerified=true;
-
-                FormBody.Builder formBuilder = new FormBody.Builder();
-                formBuilder.add("data", TextUtils.join(",", values));
-                RequestBody requestBody = formBuilder.build();
-
-                Request request = new Request.Builder()
-                        .url("https://lamp.ms.wits.ac.za/home/s2610990/insertToSignUp.php")
-                        .post(requestBody)
-                        .build();
-
-
-
-                client.newCall(request).enqueue(new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        // Something went wrong
-                        System.out.println(e);
-                    }
-
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        if (response.isSuccessful()) {
-                            String responseBody = response.body().string();
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    if (responseBody.equals("Success")) {
-                                        Constants.username = Constants.unescapeSpecialCharacters(username);
-                                        Constants.emaill =email;
-                                        Constants.password = password;
-                                        Constants.typee = typee;
-                                        Constants.age="";
-                                        Constants.aboutme="";
-                                        Constants.phone="";
-                                        // Assuming you have a drawable resource named "profile"
-                                        int drawableResId = R.drawable.user;
-
-                                        Log.d("Regg",drawableResId+"");
-
-                                        Constants.profilePicture = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" +
-                                                getResources().getResourcePackageName(drawableResId) + '/' +
-                                                getResources().getResourceTypeName(drawableResId) + '/' +
-                                                getResources().getResourceEntryName(drawableResId));
-
-
-                                        RequestBody requestBody1 = new FormBody.Builder()
-                                                .add("email",Constants.emaill).build();
-
-                                        Request request2 = new Request.Builder()
-                                                .url("https://lamp.ms.wits.ac.za/home/s2610990/getPeronId.php")
-                                                .post(requestBody1)
-                                                .build();
-
-
-                                        client2.newCall(request2).enqueue(new Callback() {
-                                            @Override
-                                            public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                                                System.out.println(e);
-                                            }
-
-                                            @Override
-                                            public void onResponse(@NonNull Call call, @NonNull Response responsee) throws IOException {
-                                                if (responsee.isSuccessful()) {
-                                                    runOnUiThread(new Runnable() {
-                                                        String res = responsee.body().string();
-
-
-                                                        @Override
-                                                        public void run() {
-                                                            JSONObject jsonObject = null;
-                                                            System.out.println(res);
-                                                            try {
-                                                                jsonObject = new JSONObject(res);
-                                                                System.out.println(jsonObject);
-                                                                Constants.person_id = jsonObject.getString("person_id");
-//                                                                Toaster.show(RegisterActivity.this,Constants.person_id);
-//                                                                Toaster.show(hidden1.this,"PErons id is : "+Constants.person_id);
-
-                                                                Toaster.show(RegisterActivity.this,"Registered successfully");
-
-                                                                if (Constants.typee.equals("Parent")){
-
-                                                                    Constants.isEntityPartnerNULL = true;
-                                                                    startActivity(new Intent(RegisterActivity.this,MainActivity.class));
-                                                                }else{
-                                                                    startActivity(new Intent(RegisterActivity.this,hidden1.class));
-                                                                }
-
-                                                            } catch (JSONException e) {
-                                                                throw new RuntimeException(e);
-                                                            }
-
-
-
-//                                                            Toaster.show(hidden1.this,"PErons id is : "+jsonObject.toString());
-//                                                            Toaster.show(Login.this,"mmmooppp");
-                                                        }
-                                                    });
-                                                }else{
-                                                    runOnUiThread(new Runnable() {
-                                                        @Override
-                                                        public void run() {
-                                                            Toaster.show(RegisterActivity.this,"Error oh no: " + responsee.code());
-                                                        }
-                                                    });
-                                                }
-                                            }
-                                        });
-
-
-
-
-
-
-                                    } else if (responseBody.equals("Email already exists")) {
-                                        Toaster.show(RegisterActivity.this,"This email already exists");
-                                    } else {
-                                        Toaster.show(RegisterActivity.this,"Account was not created successfully");
-                                    }
+                auth.createUserWithEmailAndPassword(email,password)
+                        .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()){
+                                    Toast.makeText(RegisterActivity.this, "Registration was a success", Toast.LENGTH_SHORT).show();
+                                }else{
+                                    Toast.makeText(RegisterActivity.this, "Registration was a failure", Toast.LENGTH_SHORT).show();
                                 }
-                            });
-                        } else {
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toaster.show(RegisterActivity.this,"Error: " + response.code());
-                                }
-                            });
-                        }
-                    }
-                });
+                            }
+                        });
+
             }
         });
 
