@@ -48,8 +48,8 @@ public class EmergORNotSelector extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 emergency.startAnimation(animation);
-                emergency.setBackground( getResources().getDrawable(R.drawable.parchi_selected));
-                noemergency.setBackground( getResources().getDrawable(R.drawable.parchi_notselected));
+//                emergency.setBackground( getResources().getDrawable(R.drawable.parchi_selected));
+//                noemergency.setBackground( getResources().getDrawable(R.drawable.parchi_notselected));
 
 
                 // a delay was added to let everthing happen sequencially
@@ -59,7 +59,7 @@ public class EmergORNotSelector extends AppCompatActivity {
                 }, 200);
 
                 new Handler().postDelayed(() -> {
-                    startActivity( new Intent(EmergORNotSelector.this,phonedoc.class));
+                    startActivity( new Intent(EmergORNotSelector.this,possibleEmergencies.class));
                 }, 2000);
 
 
@@ -70,13 +70,13 @@ public class EmergORNotSelector extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 noemergency.startAnimation(animation);
-                noemergency.setBackground( getResources().getDrawable(R.drawable.parchi_selected));
-                emergency.setBackground( getResources().getDrawable(R.drawable.parchi_notselected));
+//                noemergency.setBackground( getResources().getDrawable(R.drawable.parchi_selected));
+//                emergency.setBackground( getResources().getDrawable(R.drawable.parchi_notselected));
 
 
                 // a delay was added to let everthing happen sequencially
                 new Handler().postDelayed(() -> {
-                    startActivity( new Intent(EmergORNotSelector.this,phonedoc.class));
+                    startActivity( new Intent(EmergORNotSelector.this,possibleEmergencies.class));
                 }, 200);
 
 

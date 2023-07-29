@@ -22,14 +22,21 @@
             android:layout_marginStart="35dp"
             android:layout_marginEnd="35dp">
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/greyLIGHT"
+                android:layout_marginEnd="35dp"
+                android:layout_marginStart="35dp"
+                app:cardCornerRadius="22dp">
+
             <LinearLayout
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:focusable="true"
                 android:id="@+id/emergencySelected"
-                android:background="@drawable/parchi_selected"
+                android:focusable="true"
                 android:orientation="vertical">
                 <ImageView
                     android:layout_height="0dp"
@@ -54,6 +61,8 @@
                 </LinearLayout>
             </LinearLayout>
 
+            </androidx.cardview.widget.CardView>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:gravity="center"
@@ -68,6 +77,15 @@
                     android:textColor="@color/grey3"></TextView>
             </LinearLayout>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/greyLIGHT"
+                android:layout_marginEnd="35dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="35dp"
+                app:cardCornerRadius="22dp">
+
             <LinearLayout
                 android:layout_width="160dp"
                 android:layout_height="160dp"
@@ -75,7 +93,6 @@
                 android:clickable="true"
                 android:id="@+id/nonEmergencySelected"
                 android:focusable="true"
-                android:background="@drawable/parchi_notselected"
                 android:orientation="vertical">
                 <ImageView
                     android:layout_height="0dp"
@@ -98,6 +115,7 @@
                         android:text="Non-Emergency" />
                 </LinearLayout>
             </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </LinearLayout>
 

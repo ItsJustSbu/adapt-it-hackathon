@@ -20,6 +20,9 @@
         android:theme="@style/Theme.HttpRequest"
         tools:targetApi="29">
         <activity
+            android:name=".nfcTransmitterPage"
+            android:exported="false" />
+        <activity
             android:name=".ChatActivity"
             android:exported="false" />
         <activity
