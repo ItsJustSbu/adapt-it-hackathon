@@ -52,8 +52,13 @@ public class hidden1 extends AppCompatActivity {
                 String bloodtype = BloodType.getText().toString();
                 String medAid = MedAid.getText().toString();
                 String docNum = DocNum.getText().toString();
-
+                openMedHistory();
             }
+            public void openMedHistory(){
+                Intent intent = new Intent(hidden1.this, MedHistory.class);
+                startActivity(intent);
+            }
+
         });
     }
 }

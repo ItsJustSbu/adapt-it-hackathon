@@ -158,4 +158,26 @@
         app:layout_constraintTop_toBottomOf="@+id/switch4"
         app:layout_constraintVertical_bias="0.123" />
 
+    <TextView
+        android:id="@+id/specifyTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.823" />
+
+    <EditText
+        android:id="@+id/specifyET"
+        android:layout_width="369dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/specifyTV"
+        app:layout_constraintVertical_bias="0.217" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

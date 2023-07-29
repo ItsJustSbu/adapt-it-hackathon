@@ -8,8 +8,10 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,11 +24,25 @@ public class MedHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_med_history);
 
-        Switch medicating = findViewById(R.id.switch1);
-        Switch diabetic = findViewById(R.id.switch2);
-        Switch hivAids = findViewById(R.id.switch3);
-        Switch allergies = findViewById(R.id.switch4);
-        Switch pregnancy = findViewById(R.id.switch5);
+        Switch medicating = (Switch) findViewById(R.id.switch1);
+        Switch diabetic = (Switch) findViewById(R.id.switch2);
+        Switch hivAids = (Switch) findViewById(R.id.switch3);
+        Switch allergies = (Switch) findViewById(R.id.switch4);
+        Switch pregnancy = (Switch) findViewById(R.id.switch5);
+        TextView specify = (TextView) findViewById(R.id.specifyTV);
+        EditText specifying = (EditText) findViewById(R.id.specifyET);
+
+        medicating.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                   specify.setText("");
+//                } else {
+//
+//                }
+            }
+
+            }
+        });
 
     }
 }

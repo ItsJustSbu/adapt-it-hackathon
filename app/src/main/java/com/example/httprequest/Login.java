@@ -46,7 +46,7 @@ public class Login extends AppCompatActivity {
                 String email = Email.getText().toString().trim();
                 String password = Password.getText().toString().trim();
 
-                if (!Constants.validaInputs(email, password, Login.this)) return;
+
 
 
 
