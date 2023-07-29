@@ -16,6 +16,7 @@ import android.view.animation.CycleInterpolator;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -39,6 +40,10 @@ public class Constants {
     public static String tmpage ="";
     public static String tmpabout ="";
     public static String tmpphone ="";
+
+    public static List<CardItem> cardItemList = new ArrayList<>();
+
+
 
 
 

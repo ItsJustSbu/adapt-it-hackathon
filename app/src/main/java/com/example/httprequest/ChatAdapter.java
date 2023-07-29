@@ -26,15 +26,15 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
 
         // Inflate different layouts based on the sender of the chat message
         if (chatMessage.getSender().equals("You")) {
-            Toaster.show(parent.getContext(), "ME");
+//            Toaster.show(parent.getContext(), "ME");
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message_sender, parent, false);
         } else if (chatMessage.getSender().equals("Chatbot")) {
-            Toaster.show(parent.getContext(), "chat");
+//            Toaster.show(parent.getContext(), "chat");
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message_receiver, parent, false);
         } else {
             // Default to the original layout if the sender is neither "You" nor "ChatBot"
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_chat_message, parent, false);
-            Toaster.show(parent.getContext(), "else");
+//            Toaster.show(parent.getContext(), "else");
         }
 
         return new ChatViewHolder(view);

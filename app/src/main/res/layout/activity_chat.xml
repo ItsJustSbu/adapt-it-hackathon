@@ -11,7 +11,7 @@
         android:gravity="start"
         android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/backreg"
+            android:id="@+id/backchat"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="24dp"
