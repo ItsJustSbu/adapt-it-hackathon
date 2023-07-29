@@ -13,12 +13,18 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -48,11 +54,33 @@ public class hidden1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
                 String id = ID.getText().toString();
                 String bloodtype = BloodType.getText().toString();
                 String medAid = MedAid.getText().toString();
                 String docNum = DocNum.getText().toString();
                 openMedHistory();
+
+                Map<String, Object> user = new HashMap<>();
+                user.put("id", id);
+                user.put("bloodtype", bloodtype);
+                user.put("medAid", medAid);
+                user.put("docNum", docNum);
+
+                db.collection("personalInformation")
+                        .add(user)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Toaster.show(hidden1.this,"successful");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toaster.show(hidden1.this,"failed");
+                            }
+                        });
             }
             public void openMedHistory(){
                 Intent intent = new Intent(hidden1.this, MedHistory.class);

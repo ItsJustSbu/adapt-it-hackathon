@@ -132,7 +132,7 @@ public class MedHistory extends AppCompatActivity {
                 }
 
                 FirebaseAuth auth = FirebaseAuth.getInstance();
-                // send array to firebase!!
+                // send array to firebase
                 Map<String, Object> addConditions = new HashMap<>();
                 addConditions.put("uid", auth.getUid());
                 addConditions.put("conditions",medRecord);
