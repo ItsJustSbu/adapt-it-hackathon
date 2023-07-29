@@ -14,10 +14,10 @@ public class Splashscreen extends AppCompatActivity {
         setContentView(R.layout.activity_splashscreen);
 
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(this, Login.class);
+            Intent intent = new Intent(this, ChatActivity.class);
             startActivity(intent);
             finish();
 
-        }, 2000);
+        }, 000);
     }
 }

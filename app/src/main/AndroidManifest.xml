@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/spl1"
@@ -21,11 +20,22 @@
         android:theme="@style/Theme.HttpRequest"
         tools:targetApi="29">
         <activity
-            android:name=".EmergORNotSelector"
+            android:name=".ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".phonedoc"
+            android:name=".cardhealthinfo"
             android:exported="false" />
+        <activity
+            android:name=".possibleEmergencies"
+            android:exported="false" />
+        <activity
+            android:name=".EmergORNotSelector"
+            android:exported="false"
+            android:theme="@style/Theme.HttpRequest" />
+        <activity
+            android:name=".phonedoc"
+            android:exported="false"
+            android:theme="@style/Theme.HttpRequest" />
         <activity
             android:name=".Splashscreen"
             android:exported="true"
@@ -41,10 +51,9 @@
             android:exported="false"
             android:theme="@style/Theme.HttpRequest" />
         <activity
-            android:name="MedHistory"
+            android:name=".MedHistory"
             android:exported="false"
             android:theme="@style/Theme.HttpRequest" />
-
         <activity
             android:name=".hidden1"
             android:exported="false"

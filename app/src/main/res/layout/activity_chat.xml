@@ -1,0 +1,77 @@
+<!-- activity_chat.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/backreg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="24dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            app:srcCompat="@drawable/backarraw"
+            app:tint="@color/orange" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                android:textSize="28dp"
+                android:textStyle="bold"
+                android:textColor="@color/greyDARK" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewChat"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="30dp"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/editTextMessage"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chattextbox"
+            android:hint="Type a message..."
+            android:padding="16dp" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/buttonSend"
+                android:layout_width="45dp"
+                android:layout_marginLeft="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_height="45dp"
+                android:src="@drawable/send" />
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
