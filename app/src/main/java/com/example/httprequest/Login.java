@@ -46,8 +46,14 @@ public class Login extends AppCompatActivity {
                 String email = Email.getText().toString().trim();
                 String password = Password.getText().toString().trim();
 
-
-
+                if (email.isEmpty()|| !Patterns.EMAIL_ADDRESS.matcher(email).matches() || password.isEmpty()) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(Login.this, "Invalid email or Password", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
 
 
                     auth.signInWithEmailAndPassword(email, password)
@@ -62,9 +68,6 @@ public class Login extends AppCompatActivity {
                                     }
                                 }
                             });
-
-
-
             }
         });
 
@@ -77,12 +80,6 @@ public class Login extends AppCompatActivity {
                 startActivity(new Intent(Login.this, RegisterActivity.class));
             }
         });
-
-
-
-
     }
-
-
 }
 

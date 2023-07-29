@@ -39,16 +39,10 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class RegisterActivity extends AppCompatActivity {
-
-    static OkHttpClient client = new OkHttpClient();
-    static OkHttpClient client2 = new OkHttpClient();
-    static String responseStr;
     static String typee;
-
     static String username;
     static String email;
     static String password;
-
     FirebaseAuth auth;
 
     @Override
@@ -56,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        typee = "Parent";
+        typee = "Adult";
         auth = FirebaseAuth.getInstance();
 
         Animation animation = AnimationUtils.loadAnimation(RegisterActivity.this, R.anim.bounce);
@@ -72,8 +66,8 @@ public class RegisterActivity extends AppCompatActivity {
                 adultSelected.startAnimation(animation);
                 adultSelected.setBackground( getResources().getDrawable(R.drawable.parchi_selected));
                 childSelected.setBackground( getResources().getDrawable(R.drawable.parchi_notselected));
-                typee="Parent";
-                btnRegister.setText("Create account");
+                typee="Adult";
+                btnRegister.setText("Next");
             }
         });
 
@@ -84,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
                 adultSelected.setBackground( getResources().getDrawable(R.drawable.parchi_notselected));
                 childSelected.setBackground( getResources().getDrawable(R.drawable.parchi_selected));
                 typee="Child";
-                btnRegister.setText("Create account");
+                btnRegister.setText("Next");
             }
         });
 
@@ -118,45 +112,27 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this, "Invalid email or Password", Toast.LENGTH_SHORT).show();
                         }
                     });
-                }
+                } else {
 
-                auth.createUserWithEmailAndPassword(email,password)
-                        .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()){
-                                    Toaster.show(RegisterActivity.this, "Registration was a success");
-                                    openHidden1();
-                                }else{
-                                    Toaster.show(RegisterActivity.this, "Registration was a failure");
+                    auth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        Toaster.show(RegisterActivity.this, "Registration was a success");
+                                        Intent intent = new Intent(RegisterActivity.this, hidden1.class);
+                                        startActivity(intent);
+
+                                    } else {
+                                        Toaster.show(RegisterActivity.this, "Registration was a failure");
+                                    }
                                 }
-                            }
-                        });
-
-            }
-
-            public void openHidden1(){
-                Intent intent = new Intent(RegisterActivity.this, hidden1.class);
-                startActivity(intent);
+                            });
+                }
             }
 
         });
 
     }
-
-//    final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-//
-//    Call post(String url, String json, Callback callback) {
-//        RequestBody body = RequestBody.create(JSON, json);
-//        Request request = new Request.Builder()
-//                .url(url)
-//                .post(body)
-//                .build();
-//        Call call = client.newCall(request);
-//        call.enqueue(callback);
-//        return call;
-//    }
-
-
 
 }
