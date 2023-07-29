@@ -12,21 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HttpRequest"
         tools:targetApi="29">
-        <activity
-            android:name=".beforeNews"
-            android:exported="false" />
-        <activity
-            android:name=".news"
-            android:exported="false"
-            android:theme="@style/Theme.HttpRequest2" />
-        <activity
-            android:name=".Placeholder"
-            android:exported="false"
-            android:theme="@style/Theme.HttpRequest" />
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false"
-            android:theme="@style/Theme.HttpRequest" />
+
         <activity
             android:name=".Splashscreen"
             android:exported="true"
@@ -37,42 +23,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Swipes"
-            android:exported="false"
-            android:theme="@style/Theme.HttpRequest2" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:theme="@style/Theme.HttpRequest" />
-        <activity
-            android:name=".SettingsActivity"
-            android:exported="false"
-            android:theme="@style/Theme.HttpRequest" />
-        <activity
-            android:name=".hidden2"
-            android:exported="false"
-            android:theme="@style/Theme.HttpRequest" />
-        <activity
-            android:name=".hidden1"
-            android:exported="false"
-            android:theme="@style/Theme.HttpRequest" />
+
         <activity
             android:name=".RegisterActivity"
             android:exported="false"
             android:theme="@style/Theme.HttpRequest" />
-        <activity
-            android:name=".selectWallpaper"
-            android:exported="false"
-            android:theme="@style/Theme.HttpRequest" />
+
         <activity
             android:name=".Login"
             android:exported="false"
             android:theme="@style/Theme.HttpRequest" />
-        <activity
-            android:name=".LinkEntity"
-            android:exported="false"
-            android:theme="@style/Theme.HttpRequest" />
+
     </application>
 
 </manifest>
