@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmergORNotSelector">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/parentORchild"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp">
+
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/emergencySelected"
+                android:background="@drawable/parchi_selected"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_height="0dp"
+                    android:padding="10dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:src="@drawable/ambulance"></ImageView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/greyDARK"
+                        android:layout_marginVertical="10dp"
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:text="Emergency" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OR"
+                    android:textSize="25dp"
+                    android:layout_margin="25dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey3"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:id="@+id/nonEmergencySelected"
+                android:focusable="true"
+                android:background="@drawable/parchi_notselected"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_height="0dp"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:src="@drawable/no"></ImageView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/greyDARK"
+                        android:layout_marginBottom="10dp"
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:text="Non-Emergency" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
