@@ -4,11 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,6 +44,7 @@ public class hidden1 extends AppCompatActivity {
         setContentView(R.layout.activity_hidden1);
 
         TextInputLayout textInputLayout = findViewById(R.id.fieldOf);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         EditText ID = findViewById(R.id.patientID);
         EditText BloodType = findViewById(R.id.bloodType);
@@ -54,37 +57,46 @@ public class hidden1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
+
                 String id = ID.getText().toString();
                 String bloodtype = BloodType.getText().toString();
                 String medAid = MedAid.getText().toString();
                 String docNum = DocNum.getText().toString();
-                openMedHistory();
 
-                Map<String, Object> user = new HashMap<>();
-                user.put("id", id);
-                user.put("bloodtype", bloodtype);
-                user.put("medAid", medAid);
-                user.put("docNum", docNum);
+                if(id.isEmpty() || bloodtype.isEmpty() || medAid.isEmpty() || docNum.isEmpty()){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(hidden1.this, "Incomplete Information", Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
-                db.collection("personalInformation")
-                        .add(user)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Toaster.show(hidden1.this,"successful");
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toaster.show(hidden1.this,"failed");
-                            }
-                        });
-            }
-            public void openMedHistory(){
-                Intent intent = new Intent(hidden1.this, MedHistory.class);
-                startActivity(intent);
+                } else {
+
+                    Map<String, Object> user = new HashMap<>();
+                    user.put("id", id);
+                    user.put("bloodtype", bloodtype);
+                    user.put("medAid", medAid);
+                    user.put("docNum", docNum);
+
+                    db.collection("personalInformation")
+                            .add(user)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Toaster.show(hidden1.this, "successful");
+                                    Intent intent = new Intent(hidden1.this, MedHistory.class);
+                                    startActivity(intent);
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w("MainActivity", "Error adding document", e);
+                                    Toaster.show(hidden1.this, "failed");
+                                }
+                            });
+                }
             }
 
         });
