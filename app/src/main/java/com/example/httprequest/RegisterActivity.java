@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -106,10 +107,18 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 username = Username.getText().toString();
                 email = Email.getText().toString().replace(" ","");
                 password = Password.getText().toString().replace(" ","");
+
+                if (email.isEmpty()|| !Patterns.EMAIL_ADDRESS.matcher(email).matches() || password.isEmpty()) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(RegisterActivity.this, "Invalid email or Password", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
 
                 auth.createUserWithEmailAndPassword(email,password)
                         .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {

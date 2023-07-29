@@ -73,14 +73,15 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/greyDARK"
                     android:layout_marginVertical="10dp"
-                    android:textStyle="bold"
+                    android:text="Adult (18 - 65+)"
+                    android:textColor="@color/greyDARK"
                     android:textSize="16dp"
-                    android:text="Parent" />
+                    android:textStyle="bold" />
             </LinearLayout>
 
 
@@ -107,14 +108,15 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/greyDARK"
                     android:layout_marginBottom="10dp"
-                    android:textStyle="bold"
+                    android:text="Child (0- 17)"
+                    android:textColor="@color/greyDARK"
                     android:textSize="16dp"
-                    android:text="Child" />
+                    android:textStyle="bold" />
             </LinearLayout>
 
 
@@ -141,11 +143,11 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Username"
-            android:hint="Username"
-            android:imeOptions="actionNext"
-            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Patient Name"
+            android:imeOptions="actionNext"
+            android:inputType="text"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -159,11 +161,11 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Email address"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -37,32 +38,37 @@ public class Login extends AppCompatActivity {
         Button btnlgin = findViewById(R.id.lginbtn);
         EditText Email = findViewById(R.id.email);
         EditText Password = findViewById(R.id.pass);
-
         TextView notsigned = findViewById(R.id.tvsign);
 
         btnlgin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 String email = Email.getText().toString().replace(" ", "");
                 String password = Password.getText().toString().replace(" ", "");
 
-                auth.signInWithEmailAndPassword(email,password)
-                        .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()){
-                                    Toaster.show(Login.this, "Login was a successful");
-                                }else{
-                                    Toaster.show(Login.this, "Login was a failure");
+                if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches() || password.isEmpty()) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(Login.this, "Invalid email or Password", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+
+                    auth.signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        Toaster.show(Login.this, "Login was a successful");
+                                    } else {
+                                        Toaster.show(Login.this, "Login was a failure");
+                                    }
                                 }
-                            }
-                        });
+                            });
 
 
-
-
+                }
             }
         });
 
