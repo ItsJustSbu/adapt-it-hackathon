@@ -16,80 +16,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/parentORchild"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="35dp"
-            android:layout_marginEnd="35dp">
-
-            <LinearLayout
-                android:layout_width="125dp"
-                android:layout_height="140dp"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/studentSelected"
-                android:background="@drawable/parchi_selected"
-                android:layout_marginRight="10dp"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_height="0dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:src="@drawable/student"></ImageView>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/greyDARK"
-                        android:layout_marginVertical="10dp"
-                        android:textStyle="bold"
-                        android:textSize="16dp"
-                        android:text="Student" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="125dp"
-                android:layout_height="140dp"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:id="@+id/workerSelected"
-                android:focusable="true"
-                android:background="@drawable/parchi_notselected"
-                android:layout_marginLeft="10dp"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:src="@drawable/worker"></ImageView>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/greyDARK"
-                        android:layout_marginBottom="10dp"
-                        android:textStyle="bold"
-                        android:textSize="16dp"
-                        android:text="Employed" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="30dp"
             android:layout_marginStart="35dp"
@@ -104,30 +30,13 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:boxStrokeWidth="0dp"
-                    android:layout_weight="1"
-                    android:layout_marginRight="15dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/race"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Race"
-                        android:imeOptions="actionNext"
-                        android:inputType="text"
-                        android:singleLine="true" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="2">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/religion"
+                        android:id="@+id/patientID"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Religion"
+                        android:hint="Identity number"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:singleLine="true" />
@@ -137,14 +46,42 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:id="@+id/fieldOf"
+                android:id="@+id/fieldO"
+                android:layout_marginBottom="30dp"
                 android:layout_height="wrap_content"
-                android:hint="Field of Study">
+                android:hint="Blood Type">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:id="@+id/field"
+                    android:id="@+id/bloodType"
                     android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:id="@+id/fieldOf"
+                android:layout_height="wrap_content"
+                android:hint="Medical Aid">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/medAid"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="30dp"
+                android:id="@+id/fieldOfs"
+                android:layout_height="wrap_content"
+                android:hint="Personal Doctor Number">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/docNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 

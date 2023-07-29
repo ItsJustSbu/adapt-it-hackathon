@@ -28,9 +28,10 @@
             android:exported="false"
             android:theme="@style/Theme.HttpRequest" />
         <activity
-            android:name=".hidden2"
+            android:name="MedHistory"
             android:exported="false"
             android:theme="@style/Theme.HttpRequest" />
+
         <activity
             android:name=".hidden1"
             android:exported="false"

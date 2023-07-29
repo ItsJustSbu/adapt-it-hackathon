@@ -61,16 +61,16 @@ public class RegisterActivity extends AppCompatActivity {
 
         Animation animation = AnimationUtils.loadAnimation(RegisterActivity.this, R.anim.bounce);
 
-        LinearLayout parentSelected = findViewById(R.id.parentSelected);
+        LinearLayout adultSelected = findViewById(R.id.adultSelected);
         LinearLayout childSelected = findViewById(R.id.childSelected);
 
         Button btnRegister = findViewById(R.id.btnRegister);
 
-        parentSelected.setOnClickListener(new View.OnClickListener() {
+        adultSelected.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                parentSelected.startAnimation(animation);
-                parentSelected.setBackground( getResources().getDrawable(R.drawable.parchi_selected));
+                adultSelected.startAnimation(animation);
+                adultSelected.setBackground( getResources().getDrawable(R.drawable.parchi_selected));
                 childSelected.setBackground( getResources().getDrawable(R.drawable.parchi_notselected));
                 typee="Parent";
                 btnRegister.setText("Create account");
@@ -81,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 childSelected.startAnimation(animation);
-                parentSelected.setBackground( getResources().getDrawable(R.drawable.parchi_notselected));
+                adultSelected.setBackground( getResources().getDrawable(R.drawable.parchi_notselected));
                 childSelected.setBackground( getResources().getDrawable(R.drawable.parchi_selected));
                 typee="Child";
                 btnRegister.setText("Create account");
@@ -126,6 +126,7 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()){
                                     Toaster.show(RegisterActivity.this, "Registration was a success");
+                                    openHidden1();
                                 }else{
                                     Toaster.show(RegisterActivity.this, "Registration was a failure");
                                 }
@@ -133,6 +134,12 @@ public class RegisterActivity extends AppCompatActivity {
                         });
 
             }
+
+            public void openHidden1(){
+                Intent intent = new Intent(RegisterActivity.this, hidden1.class);
+                startActivity(intent);
+            }
+
         });
 
     }

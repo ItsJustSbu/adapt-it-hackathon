@@ -24,8 +24,11 @@ public class Constants {
     public static String childId = "";
 
     public static String entityUsername ="";
-    public static String race = "";
-    public static String religion = "";
+    public static String age = "";
+    public static String id = "";
+
+    public static String medAid = "";
+    public static String docNum = "";
     public static String typey = "";
     public static String field = "";
     public static String gender = "";
@@ -367,7 +370,7 @@ public class Constants {
         return true;
     }
 
-    public static String age ="";
+
     public static String phone ="";
     public static String aboutme ="";
 
