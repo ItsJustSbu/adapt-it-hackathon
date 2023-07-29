@@ -43,32 +43,28 @@ public class Login extends AppCompatActivity {
         btnlgin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = Email.getText().toString().replace(" ", "");
-                String password = Password.getText().toString().replace(" ", "");
+                String email = Email.getText().toString().trim();
+                String password = Password.getText().toString().trim();
 
-                if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches() || password.isEmpty()) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(Login.this, "Invalid email or Password", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                } else {
+                if (!Constants.validaInputs(email, password, Login.this)) return;
+
+
 
                     auth.signInWithEmailAndPassword(email, password)
                             .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        Toaster.show(Login.this, "Login was a successful");
+                                        Toaster.show(Login.this, "Signed in successfully");
+                                        startActivity(new Intent(Login.this,EmergORNotSelector.class));
                                     } else {
-                                        Toaster.show(Login.this, "Login was a failure");
+                                        Toaster.show(Login.this, "Login was not successful");
                                     }
                                 }
                             });
 
 
-                }
+
             }
         });
 
@@ -79,28 +75,6 @@ public class Login extends AppCompatActivity {
                 Animation animation = AnimationUtils.loadAnimation(Login.this, R.anim.bounce);
                 notsigned.startAnimation(animation);
                 startActivity(new Intent(Login.this, RegisterActivity.class));
-//                Constants.animateCuteButton(notsigned, new Animator.AnimatorListener() {
-//                    @Override
-//                    public void onAnimationStart(Animator animator) {
-//                        // Animation start callback
-//                    }
-//
-//                    @Override
-//                    public void onAnimationEnd(Animator animator) {
-//                        // Animation end callback
-//
-//                    }
-//
-//                    @Override
-//                    public void onAnimationCancel(Animator animator) {
-//                        // Animation cancel callback
-//                    }
-//
-//                    @Override
-//                    public void onAnimationRepeat(Animator animator) {
-//                        // Animation repeat callback
-//                    }
-//                });
             }
         });
 
