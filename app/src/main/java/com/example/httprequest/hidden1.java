@@ -67,7 +67,7 @@ public class hidden1 extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(hidden1.this, "Incomplete Information", Toast.LENGTH_SHORT).show();
+                            Toaster.show(hidden1.this, "Incomplete Information");
                         }
                     });
 
@@ -84,12 +84,13 @@ public class hidden1 extends AppCompatActivity {
                     });
 
                 }
+                String bloo = bloodtype.trim().toUpperCase();
 
-                if(bloodtype.trim().length()>2){
+                if(bloo.length()>2 && !bloo.equals("O") && !bloo.equals("A") && !bloo.equals("B") && !bloo.equals("AB")){
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(hidden1.this, "Invalid Blood Type", Toast.LENGTH_SHORT).show();
+                            Toaster.show(hidden1.this, "Invalid Blood Type");
                         }
                     });
                 }
@@ -107,7 +108,7 @@ public class hidden1 extends AppCompatActivity {
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
                                 public void onSuccess(DocumentReference documentReference) {
-                                    Toaster.show(hidden1.this, "successful");
+                                    Toaster.show(hidden1.this, "Information added successfully");
                                     Intent intent = new Intent(hidden1.this, MedHistory.class);
                                     startActivity(intent);
                                 }
@@ -116,7 +117,7 @@ public class hidden1 extends AppCompatActivity {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     Log.w("MainActivity", "Error adding document", e);
-                                    Toaster.show(hidden1.this, "failed");
+                                    Toaster.show(hidden1.this, "Information was not added successfully");
                                 }
                             });
                 }

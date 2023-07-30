@@ -109,7 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(RegisterActivity.this, "Invalid email or Password", Toast.LENGTH_SHORT).show();
+                            Toaster.show(RegisterActivity.this, "Invalid email or Password");
                         }
                     });
                 } else {

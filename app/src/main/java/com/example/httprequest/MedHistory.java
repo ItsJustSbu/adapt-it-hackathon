@@ -40,15 +40,15 @@ public class MedHistory extends AppCompatActivity {
         Switch hivAids = (Switch) findViewById(R.id.switch3);
         Switch allergies = (Switch) findViewById(R.id.switch4);
         Switch pregnancy = (Switch) findViewById(R.id.switch5);
-        TextView specifyMed = (TextView) findViewById(R.id.specifyTV);
-        TextView specifyAlgs = (TextView) findViewById(R.id.specifyTV2);
+        TextInputLayout specifyMed = findViewById(R.id.specifyTV);
+        TextInputLayout specifyAlgs = findViewById(R.id.specifyTV2);
         EditText specifyingAlgs = (EditText) findViewById(R.id.specifyET2);
         EditText specifyingMed = (EditText) findViewById(R.id.specifyET);
         Button continueBtn = (Button) findViewById(R.id.medHisBtn);
 
         ArrayList<String> medRecord = new ArrayList<>();
-        specifyingMed.setVisibility(View.INVISIBLE);
-        specifyingAlgs.setVisibility(View.INVISIBLE);
+        specifyingMed.setVisibility(View.GONE);
+        specifyingAlgs.setVisibility(View.GONE);
 
         medicating.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
@@ -56,12 +56,13 @@ public class MedHistory extends AppCompatActivity {
                 if(isChecked) {
                     medRecord.add("On Medication ");
                     specifyingMed.setVisibility(View.VISIBLE);
-                    specifyMed.setText("Specify the medication which you are currently taking below");
+                    specifyMed.setVisibility(View.VISIBLE);
+
 
                 } else {
                     medRecord.add("Not on any Medication ");
-                    specifyMed.setText("");
-                    specifyingMed.setVisibility(View.INVISIBLE);
+                    specifyingMed.setVisibility(View.GONE);
+                    specifyMed.setVisibility(View.GONE);
 
                 }
             }
@@ -72,12 +73,14 @@ public class MedHistory extends AppCompatActivity {
                  if(isChecked) {
                      medRecord.add("Has Allergies ");
                      specifyingAlgs.setVisibility(View.VISIBLE);
-                     specifyAlgs.setText("Specify what you are allergic to below");
+                     specifyAlgs.setVisibility(View.VISIBLE);
+//                     specifyAlgs.setText("Specify what you are allergic to below");
 
                  } else {
                      medRecord.add("No Allergies ");
-                     specifyAlgs.setText("");
-                     specifyingAlgs.setVisibility(View.INVISIBLE);
+//                     specifyAlgs.setText("");
+                     specifyAlgs.setVisibility(View.GONE);
+                     specifyingAlgs.setVisibility(View.GONE);
                  }
 
              }
@@ -141,7 +144,7 @@ public class MedHistory extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
-                                Toaster.show(MedHistory.this,"successfully recorded");
+                                Toaster.show(MedHistory.this,"Information added successfully");
                                 Intent intent = new Intent(MedHistory.this, ProfileActivity .class);
                                 startActivity(intent);
                             }
@@ -149,7 +152,7 @@ public class MedHistory extends AppCompatActivity {
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toaster.show(MedHistory.this,"failed to record history, try again");
+                                Toaster.show(MedHistory.this,"Information was not added successfully, try again!");
                             }
                         });
 

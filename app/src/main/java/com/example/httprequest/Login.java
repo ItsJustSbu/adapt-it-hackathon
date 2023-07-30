@@ -50,7 +50,7 @@ public class Login extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(Login.this, "Invalid email or Password", Toast.LENGTH_SHORT).show();
+                            Toaster.show(Login.this, "Invalid email or Password");
                         }
                     });
                 }
