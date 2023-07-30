@@ -71,5 +71,7 @@ public class possibleEmergencies extends AppCompatActivity {
     public void onItemClick(int position) {
 
         Toaster.show(possibleEmergencies.this,"The position is : "+position);
+
+        startActivity(new Intent(possibleEmergencies.this, cardhealthinfo.class));
     }
 }
