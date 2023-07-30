@@ -22,7 +22,7 @@ async function run(){
         var i = 0;
 
         //getting each step from website 
-        const steps = document.querySelectorAll(".numberedpod__body");
+        const steps = document.querySelectorAll(".column_attr");
 
         return Array.from(steps).map((step)=>{
             const stepNum = i+1;
@@ -40,7 +40,7 @@ async function run(){
     const jsonData = JSON.stringify(scrapeSteps, null, 2);
     
     //writing to local file system
-    fs.writeFile("chocking_data.json", jsonData, (error)=>{
+    fs.writeFile("diabetes_data.json", jsonData, (error)=>{
         if (error){
             console.error("error writing to file:", error);
         }else{
