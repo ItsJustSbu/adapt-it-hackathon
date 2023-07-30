@@ -23,6 +23,8 @@ class HostCardEmulatorService : HostApduService() {
         val MIN_APDU_LENGTH = 12
     }
 
+//    once NFS tag has been recieved, the apdu (application protocol data unit) will be processed
+
     override fun processCommandApdu(commandApdu : ByteArray?, p1: Bundle?): ByteArray? {
         if (commandApdu == null) {
             return Utils.hexStringToByteArray(STATUS_FAILED)
@@ -42,9 +44,10 @@ class HostCardEmulatorService : HostApduService() {
             return Utils.hexStringToByteArray(INS_NOT_SUPPORTED)
         }
 
+//    if the adpu string matches with the receiver it will send the to the reciever the user id
         if (hexCommandApdu.substring(10, 24) == AID)  {
             val user = auth.currentUser
-            val Response = user?.email
+            val Response = user?.uid
             val responseTohex = Response?.let { Utils.stringToHex(it) }
             return responseTohex?.let { Utils.hexStringToByteArray(it) }
 
