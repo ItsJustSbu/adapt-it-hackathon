@@ -112,7 +112,7 @@
                         android:id="@+id/textView5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Are you currently taking any medication?"
+                        android:text="Are you HIV/AIDs positive?"
                         android:textColor="#000000" />
 
                     <LinearLayout
@@ -139,7 +139,7 @@
                         android:id="@+id/textView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Are you currently taking any medication?"
+                        android:text="Do you have any allergies?"
                         android:textColor="#000000" />
 
                     <LinearLayout
@@ -166,7 +166,7 @@
                         android:id="@+id/textView7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Are you currently taking any medication?"
+                        android:text="Are you currently pregnant?"
                         android:textColor="#000000" />
 
                     <LinearLayout

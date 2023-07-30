@@ -99,7 +99,7 @@ public class hidden1 extends AppCompatActivity {
 
                     Map<String, Object> user = new HashMap<>();
                     user.put("id", id);
-                    user.put("bloodtype", bloodtype);
+                    user.put("bloodtype", bloo);
                     user.put("medAid", medAid);
                     user.put("docNum", docNum);
 
