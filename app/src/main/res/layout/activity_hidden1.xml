@@ -21,6 +21,31 @@
             android:layout_marginStart="35dp"
             android:layout_marginEnd="35dp">
 
+            <TextView
+                android:id="@+id/title"
+                android:text="Personal Information"
+                android:textColor="@color/black"
+                android:textSize="28sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/subheading"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:textColor="@color/greyDARK"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="9dp"
+                android:text="Please provide your information"
+                app:layout_constraintEnd_toEndOf="@+id/title"
+                app:layout_constraintStart_toStartOf="@+id/title"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
             <LinearLayout
                 android:id="@+id/agePhone"
                 android:layout_width="match_parent"
@@ -76,7 +101,7 @@
                 android:layout_marginTop="30dp"
                 android:id="@+id/fieldOfs"
                 android:layout_height="wrap_content"
-                android:hint="Personal Doctor Number">
+                android:hint="Doctor's Phone Number (+27)">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/docNumber"
@@ -84,6 +109,33 @@
                     android:layout_height="58dp"
                     android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I give consent to giving my ID number"
+                    android:textColor="#000000" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="end"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content">
+                    <Switch
+                        android:id="@+id/switchreg"
+                        android:layout_width="wrap_content"
+                        android:trackTint="@color/grey3"
+                        android:thumbTint="@color/blue"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"

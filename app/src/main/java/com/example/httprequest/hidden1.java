@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,6 +39,8 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class hidden1 extends AppCompatActivity {
+
+    boolean consented = false;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,20 @@ public class hidden1 extends AppCompatActivity {
 
         Button next = findViewById(R.id.hid1next);
 
+        Switch consent = findViewById(R.id.switchreg);
+
+        consent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                   consented=true;
+                }
+                else {
+                    consented = false;
+                }
+            }
+        });
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +80,8 @@ public class hidden1 extends AppCompatActivity {
                 String bloodtype = BloodType.getText().toString();
                 String medAid = MedAid.getText().toString();
                 String docNum = DocNum.getText().toString();
+
+                String bloo = bloodtype.trim().toUpperCase();
 
                 if(id.isEmpty() || bloodtype.isEmpty() || medAid.isEmpty() || docNum.isEmpty()){
                     runOnUiThread(new Runnable() {
@@ -75,27 +95,40 @@ public class hidden1 extends AppCompatActivity {
 
                 // might need to set up API to validate id and phone number
 
-                if(id.trim().length() != 13){
+                else if(id.trim().length() != 13){
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(hidden1.this, "Invalid ID", Toast.LENGTH_SHORT).show();
+                            Toaster.show(hidden1.this, "Invalid ID");
                         }
                     });
 
                 }
-                String bloo = bloodtype.trim().toUpperCase();
+                else if(docNum.trim().length() != 10){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toaster.show(hidden1.this, "Invalid Doctor Number");
+                        }
+                    });
 
-                if(bloo.length()>2 && !bloo.equals("O") && !bloo.equals("A") && !bloo.equals("B") && !bloo.equals("AB")){
+                }
+
+                else if(bloo.length()>2 && !bloo.equals("O") && !bloo.equals("A") && !bloo.equals("B") && !bloo.equals("AB")){
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             Toaster.show(hidden1.this, "Invalid Blood Type");
                         }
                     });
-                }
-
-                else {
+                } else if (!consented) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toaster.show(hidden1.this, "You cannot continue unless you give consent");
+                        }
+                    });
+                } else {
 
                     Map<String, Object> user = new HashMap<>();
                     user.put("id", id);
