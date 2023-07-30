@@ -199,6 +199,8 @@ public class RegisterActivity extends AppCompatActivity {
                 } catch (ApiException e) {
                     e.printStackTrace();
                 }
+            }else{
+                Toaster.show(RegisterActivity.this,"There was a problem signing in");
             }
         }
     }
