@@ -43,16 +43,8 @@
             android:name=".Splashscreen"
             android:exported="true"
             android:theme="@style/Theme.HttpRequest">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false"
-            android:theme="@style/Theme.HttpRequest" />
         <activity
             android:name=".MedHistory"
             android:exported="false"
@@ -63,8 +55,14 @@
             android:theme="@style/Theme.HttpRequest" />
         <activity
             android:name=".RegisterActivity"
-            android:exported="false"
-            android:theme="@style/Theme.HttpRequest" />
+            android:exported="true"
+            android:theme="@style/Theme.HttpRequest" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Login"
             android:exported="false"

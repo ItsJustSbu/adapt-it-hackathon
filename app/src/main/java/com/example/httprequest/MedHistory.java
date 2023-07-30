@@ -29,6 +29,7 @@ import java.util.Map;
 
 public class MedHistory extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,79 +47,94 @@ public class MedHistory extends AppCompatActivity {
         EditText specifyingMed = (EditText) findViewById(R.id.specifyET);
         Button continueBtn = (Button) findViewById(R.id.medHisBtn);
 
+
+
+
+
+
         ArrayList<String> medRecord = new ArrayList<>();
         specifyingMed.setVisibility(View.GONE);
         specifyingAlgs.setVisibility(View.GONE);
 
         medicating.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
+            String Medicating = "Not on Medication";
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
-                    medRecord.add("On Medication ");
+                   Medicating = "Is On Medication";
                     specifyingMed.setVisibility(View.VISIBLE);
                     specifyMed.setVisibility(View.VISIBLE);
 
 
                 } else {
-                    medRecord.add("Not on any Medication ");
+                    Medicating = "Not on Medication";
                     specifyingMed.setVisibility(View.GONE);
                     specifyMed.setVisibility(View.GONE);
 
                 }
+                medRecord.add(Medicating);
             }
         });
          allergies.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+             String Allergies = "No Allergies";
              @Override
              public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                  if(isChecked) {
-                     medRecord.add("Has Allergies ");
+                     Allergies = "Has Allergies ";
                      specifyingAlgs.setVisibility(View.VISIBLE);
                      specifyAlgs.setVisibility(View.VISIBLE);
 //                     specifyAlgs.setText("Specify what you are allergic to below");
 
                  } else {
-                     medRecord.add("No Allergies ");
+                     Allergies = "No Allergies";
 //                     specifyAlgs.setText("");
                      specifyAlgs.setVisibility(View.GONE);
                      specifyingAlgs.setVisibility(View.GONE);
                  }
-
+                 medRecord.add(Allergies);
              }
          });
 
          diabetic.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+             String Diabetic = "Not Diabetic";
+
              @Override
              public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                  if(isChecked) {
-                     medRecord.add("Is Diabetic ");
+                     Diabetic = "Is Diabetic";
                  }
                  else {
-                     medRecord.add("Not Diabetic ");
+                     Diabetic = "Not Diabetic";
                  }
+                 medRecord.add(Diabetic);
              }
          });
 
         pregnancy.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            String Pregnancy= "Not pregnant";
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
-                    medRecord.add("Is Pregnant ");
+
+                    Pregnancy = "Is Pregnant ";
                 }
                 else {
-                    medRecord.add("Not Pregnant ");
+                    Pregnancy= "Not pregnant";
                 }
+                medRecord.add(Pregnancy);
             }
         });
 
-        pregnancy.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        hivAids.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            String Hiv = "HIV/AIDs negative ";
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
-                    medRecord.add("Is HIV/AIDs positive ");
+                    String Hiv = "Is HIV/AIDs positive ";
                 }
                 else {
-                    medRecord.add("Is HIV/AIDs+ negative ");
+                    String Hiv = "HIV/AIDs negative ";
                 }
+                medRecord.add(Hiv);
             }
         });
 
@@ -145,7 +161,7 @@ public class MedHistory extends AppCompatActivity {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Toaster.show(MedHistory.this,"Information added successfully");
-                                Intent intent = new Intent(MedHistory.this, ProfileActivity .class);
+                                Intent intent = new Intent(MedHistory.this, Login .class);
                                 startActivity(intent);
                             }
                         })
