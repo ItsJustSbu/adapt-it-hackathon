@@ -49,6 +49,7 @@ public class Login extends AppCompatActivity {
         TextView notsigned = findViewById(R.id.tvsign);
 
         Button google = findViewById(R.id.gglogin);
+
         GoogleSignInClient signInClient;
 
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -56,6 +57,7 @@ public class Login extends AppCompatActivity {
                         .requestEmail().build();
 
         signInClient = GoogleSignIn.getClient(Login.this,googleSignInOptions);
+
 
 
         google.setOnClickListener(new View.OnClickListener() {
@@ -123,10 +125,7 @@ public class Login extends AppCompatActivity {
             // check condition
             if (signInAccountTask.isSuccessful()) {
                 // When google sign in successful initialize string
-                String s = "Google sign in successful";
-                // Display Toast
-                displayToast(s);
-                // Initialize sign in account
+                Toaster.show(Login.this,"Google sign in successful");
                 try {
                     // Initialize sign in account
                     GoogleSignInAccount googleSignInAccount = signInAccountTask.getResult(ApiException.class);
@@ -142,10 +141,10 @@ public class Login extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // When task is successful redirect to profile activity display Toast
                                     startActivity(new Intent(Login.this, EmergORNotSelector.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                                    displayToast("Firebase authentication successful");
+                                    Toaster.show(Login.this,"Firebase authentication successful");
                                 } else {
                                     // When task is unsuccessful display Toast
-                                    displayToast("Authentication Failed :" + task.getException().getMessage());
+                                    Toaster.show(Login.this,"Authentication Failed :" + task.getException().getMessage());
                                 }
                             }
                         });
@@ -156,8 +155,6 @@ public class Login extends AppCompatActivity {
             }
         }
     }
-    private void displayToast(String s) {
-        Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
-    }
+
 }
 

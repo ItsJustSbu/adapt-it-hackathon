@@ -170,11 +170,7 @@ public class RegisterActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> signInAccountTask = GoogleSignIn.getSignedInAccountFromIntent(data);
             // check condition
             if (signInAccountTask.isSuccessful()) {
-                // When google sign in successful initialize string
-                String s = "Google sign in successful";
-                // Display Toast
-                displayToast(s);
-                // Initialize sign in account
+                Toaster.show(RegisterActivity.this,"Google sign in successful");
                 try {
                     // Initialize sign in account
                     GoogleSignInAccount googleSignInAccount = signInAccountTask.getResult(ApiException.class);
@@ -189,11 +185,11 @@ public class RegisterActivity extends AppCompatActivity {
                                 // Check condition
                                 if (task.isSuccessful()) {
                                     // When task is successful redirect to profile activity display Toast
-                                    startActivity(new Intent(RegisterActivity.this, EmergORNotSelector.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                                    displayToast("Firebase authentication successful");
+                                    startActivity(new Intent(RegisterActivity.this, hidden1.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                                    Toaster.show(RegisterActivity.this,"Firebase authentication successful");
                                 } else {
                                     // When task is unsuccessful display Toast
-                                    displayToast("Authentication Failed :" + task.getException().getMessage());
+                                    Toaster.show(RegisterActivity.this,"Authentication Failed :" + task.getException().getMessage());
                                 }
                             }
                         });
@@ -204,9 +200,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
     }
-    private void displayToast(String s) {
-        Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
-    }
+
 
 
 }
