@@ -14,7 +14,7 @@ public class Splashscreen extends AppCompatActivity {
         setContentView(R.layout.activity_splashscreen);
 
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(this, cardhealthinfo.class);
+            Intent intent = new Intent(this, possibleEmergencies.class);
             startActivity(intent);
             finish();
 

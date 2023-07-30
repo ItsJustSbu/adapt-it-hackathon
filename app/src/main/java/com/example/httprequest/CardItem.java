@@ -1,17 +1,22 @@
 package com.example.httprequest;
 
+import java.util.ArrayList;
+
 public class CardItem {
     private int imageResource;
     private String text;
 
-    private String Symptoms;
-    private String Treatment;
+    private ArrayList<String> Symptoms;
+    private ArrayList<String> Treatment;
 
-    public CardItem(int imageResource, String text, String Symptoms, String Treatment) {
+    private Boolean picvis;
+
+    public CardItem(int imageResource, String text, ArrayList<String> Symptoms, ArrayList<String> Treatment, Boolean picvis) {
         this.imageResource = imageResource;
         this.text = text;
         this.Symptoms = Symptoms;
         this.Treatment = Treatment;
+        this.picvis = picvis;
     }
 
     public int getImageResource() {
@@ -23,10 +28,12 @@ public class CardItem {
         return text;
     }
 
-    public String getSymptoms() {
+    public ArrayList<String> getSymptoms() {
         return Symptoms;
     }
-    public String getTreatments() {
+    public ArrayList<String> getTreatments() {
         return Treatment;
     }
+
+    public Boolean getPicVis(){ return picvis;}
 }

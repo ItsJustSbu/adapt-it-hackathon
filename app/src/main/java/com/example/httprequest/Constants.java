@@ -42,9 +42,10 @@ public class Constants {
     public static String tmpphone ="";
 
     public static List<CardItem> cardItemList = new ArrayList<>();
+    static ArrayList<String>  pp1 = new ArrayList<>();
+    static ArrayList<String>  pp2 = new ArrayList<>();
 
-
-
+    public static CardItem pop = new CardItem(R.drawable.user, "Shock", pp1, pp2, true);
 
 
     public static int mat = -1;

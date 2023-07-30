@@ -8,68 +8,55 @@
     android:layout_height="match_parent"
     tools:context=".cardhealthinfo">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/backtop"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="start"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/backcardinfo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="24dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            app:srcCompat="@drawable/backarraw"
+            app:tint="@color/orange" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/cardinfotitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CardioVascular"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/greyDARK" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/backtop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
         android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:id="@+id/imgheading"
-                android:src="@drawable/heartt"></ImageView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="CardioVascular Issues"
-                android:textSize="23dp"
-                android:textStyle="bold"
-                android:layout_height="wrap_content"></TextView>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:id="@+id/imgheading"
-                android:src="@drawable/heartt"></ImageView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="CardioVascular Issues"
-                android:textSize="23dp"
-                android:textStyle="bold"
-                android:layout_height="wrap_content"></TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:id="@+id/imgheading"
-                android:src="@drawable/heartt"></ImageView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="CardioVascular Issues"
-                android:textSize="23dp"
-                android:textStyle="bold"
-                android:layout_height="wrap_content"></TextView>
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,23 +66,40 @@
             android:layout_height="wrap_content">
             <TextView
                 android:layout_width="wrap_content"
-                android:text="CardioVascular Issues"
+                android:text="Signs and Symptoms :"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:layout_height="wrap_content"></TextView>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginVertical="15dp"
+                android:orientation="vertical"
+                android:id="@+id/sympcontainer"
+                android:layout_height="wrap_content"></LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
-                android:text="CardioVascular Issues"
+                android:text="Treatment : "
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:layout_height="wrap_content"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginVertical="15dp"
+                android:orientation="vertical"
+                android:id="@+id/treatcontainer"
+                android:layout_height="wrap_content"></LinearLayout>
         </LinearLayout>
         <ImageView
             android:layout_width="match_parent"
+            android:layout_marginHorizontal="15dp"
             android:id="@+id/recoverpic"
             android:layout_height="350dp"
             android:src="@drawable/recovery"></ImageView>
+
+
     </LinearLayout>
 
 
