@@ -109,11 +109,14 @@
                 android:textStyle="bold"
                 android:layout_height="wrap_content"></TextView>
 
-            <Button
-                android:layout_width="match_parent"
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/gglogin"
-                android:layout_height="wrap_content"
-                android:text="ggo"></Button>
+                style="@style/btnStyle"
+                android:layout_width="match_parent"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:text="Sign in with google" />
+
         </LinearLayout>
 
 

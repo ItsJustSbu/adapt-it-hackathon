@@ -32,14 +32,19 @@
         android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="@+id/backreg" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head"
+        android:paddingBottom="50dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
         android:weightSum="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/head"
         android:layout_height="wrap_content">
 
 
@@ -216,14 +221,17 @@
             android:textStyle="bold"
             android:layout_height="wrap_content"></TextView>
 
-
-        <Button
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/ggreg"
-            android:layout_height="wrap_content"
-            android:text="ggo"></Button>
+            style="@style/btnStyle"
+            android:layout_width="match_parent"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:text="Sign Up with google" />
     </LinearLayout>
 
     </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
