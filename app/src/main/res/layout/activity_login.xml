@@ -109,11 +109,11 @@
                 android:textStyle="bold"
                 android:layout_height="wrap_content"></TextView>
 
-            <com.google.android.gms.common.SignInButton
-                android:id="@+id/sign_in_button"
-                android:layout_marginHorizontal="24dp"
+            <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:id="@+id/gglogin"
+                android:layout_height="wrap_content"
+                android:text="ggo"></Button>
         </LinearLayout>
 
 

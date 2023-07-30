@@ -46,7 +46,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="35dp"
         android:id="@+id/parentORchild"
         android:layout_marginStart="35dp"
@@ -207,6 +207,21 @@
             android:layout_marginEnd="25dp"
             android:text="Next" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:text="OR"
+            android:textAlignment="center"
+            android:textSize="24dp"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"></TextView>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/ggreg"
+            android:layout_height="wrap_content"
+            android:text="ggo"></Button>
     </LinearLayout>
 
     </LinearLayout>

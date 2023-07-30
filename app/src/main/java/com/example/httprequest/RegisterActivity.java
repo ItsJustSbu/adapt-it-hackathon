@@ -53,6 +53,15 @@ public class RegisterActivity extends AppCompatActivity {
         typee = "Adult";
         auth = FirebaseAuth.getInstance();
 
+        Button google = findViewById(R.id.ggreg);
+
+        google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         Animation animation = AnimationUtils.loadAnimation(RegisterActivity.this, R.anim.bounce);
 
         LinearLayout adultSelected = findViewById(R.id.adultSelected);

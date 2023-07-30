@@ -40,6 +40,17 @@ public class Login extends AppCompatActivity {
         EditText Password = findViewById(R.id.pass);
         TextView notsigned = findViewById(R.id.tvsign);
 
+        Button google = findViewById(R.id.gglogin);
+
+
+
+        google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         btnlgin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
