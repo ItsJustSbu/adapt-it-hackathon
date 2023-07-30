@@ -65,10 +65,12 @@ public class RegisterActivity extends AppCompatActivity {
 
         GoogleSignInClient signInClient;
 
+//        this will create a sign in form for google
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("1065228130707-al1evc859q432cef2f6o47m4me29h1ci.apps.googleusercontent.com")
                 .requestEmail().build();
 
+//        client references the view as well as the sign in form
         signInClient = GoogleSignIn.getClient(RegisterActivity.this,googleSignInOptions);
 
         google.setOnClickListener(new View.OnClickListener() {
