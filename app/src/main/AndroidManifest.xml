@@ -5,6 +5,11 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-feature
+        android:name="android.hardware.nfc.hce"
+        android:required="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -19,6 +24,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HttpRequest"
         tools:targetApi="29">
+<!--        <activity-->
+<!--            android:name=".MainActivity"-->
+<!--            android:exported="false">-->
+
+<!--        </activity>-->
         <activity
             android:name=".nfcTransmitterPage"
             android:exported="false" />
@@ -67,6 +77,18 @@
             android:name=".Login"
             android:exported="false"
             android:theme="@style/Theme.HttpRequest" />
+        <service
+            android:name=".HostCardEmulatorService"
+            android:exported="true"
+            android:permission="android.permission.BIND_NFC_SERVICE">
+        <intent-filter>
+            <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE" />
+        </intent-filter>
+
+        <meta-data
+            android:name="android.nfc.cardemulation.host_apdu_service"
+            android:resource="@xml/adpuservice" />
+        </service>
     </application>
 
 </manifest>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Adapt_it</string>
+    <string name="servicedesc">hcetag</string>
+    <string name="aiddescription">this cotains the aid tag information</string>
 </resources>
