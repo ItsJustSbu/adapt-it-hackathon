@@ -71,7 +71,30 @@ public class hidden1 extends AppCompatActivity {
                         }
                     });
 
-                } else {
+                }
+
+                // might need to set up API to validate id and phone number
+
+                if(id.trim().length() != 13){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(hidden1.this, "Invalid ID", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                }
+
+                if(bloodtype.trim().length()>2){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(hidden1.this, "Invalid Blood Type", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
+                else {
 
                     Map<String, Object> user = new HashMap<>();
                     user.put("id", id);

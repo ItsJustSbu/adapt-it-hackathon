@@ -38,7 +38,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Identity number"
                         android:imeOptions="actionNext"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,7 +82,7 @@
                     android:id="@+id/docNumber"
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
-                    android:inputType="text" />
+                    android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton

@@ -29,7 +29,6 @@ import okhttp3.Response;
 
 public class ProfileActivity extends AppCompatActivity {
     ImageView prflpic;
-    static OkHttpClient client1 = new OkHttpClient();
 
     String[] values;
 
@@ -42,16 +41,12 @@ public class ProfileActivity extends AppCompatActivity {
 //        Toaster.show(ProfileActivity.this,temppfp+"tempti");
 
 
-
 //        temppfp=pfp;
 
-        if (Constants.firstTimeOnProfile){
+        if (Constants.firstTimeOnProfile) {
 //            temppfp= pfp;
-            Constants.firstTimeOnProfile=false;
+            Constants.firstTimeOnProfile = false;
         }
-
-
-
 
 
         ImageView btnBack = findViewById(R.id.backprf);
@@ -82,7 +77,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 //                Toaster.show(ProfileActivity.this,age);
 
-                if (!validInput(age,phone,aboutme)) return;
+                if (!validInput(age, phone, aboutme)) return;
 
 //                Toaster.show(ProfileActivity.this, temppfp+"");
 
@@ -95,57 +90,6 @@ public class ProfileActivity extends AppCompatActivity {
                 values = new String[]{Constants.removeSpecialCharacters(age), Constants.removeSpecialCharacters(phone), Constants.escapeSpecialCharacters(aboutme.trim()), Integer.toString(Constants.temppfp), Constants.escapeSpecialCharacters(Constants.unescapeSpecialCharacters(Constants.emaill))};
 
 
-                FormBody.Builder formBuilder = new FormBody.Builder();
-                formBuilder.add("data", TextUtils.join(",", values));
-                RequestBody requestBody = formBuilder.build();
-
-                Request request1 = new Request.Builder()
-                        .url("https://lamp.ms.wits.ac.za/home/s2610990/prof.php")
-                        .post(requestBody)
-                        .build();
-
-                client1.newCall(request1).enqueue(new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        // Something went wrong
-                        System.out.println(e);
-                    }
-                    public void onResponse(Call call, Response response) throws IOException {
-                        if (response.isSuccessful()) {
-                            String responseBody = response.body().string();
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-
-                                    if(responseBody.contains("Success")){
-                                    Constants.age=age;
-                                    Constants.phone=phone;
-                                    Constants.pfp=Constants.temppfp;
-                                    Constants.aboutme=aboutme;
-                                    Constants.tmpphone=Constants.phone;
-                                    Constants.tmpage=Constants.age;
-                                    Constants.tmpabout=Constants.aboutme;
-                                    Constants.firstTimeOnProfile=true;
-
-                                    Toaster.show(ProfileActivity.this,"Profile Updated");
-                                    if (Constants.isEntityPartnerNULL){
-                                        if (Constants.typee.contains("Parent")){
-                                            Toaster.show(ProfileActivity.this,"Please link your Child to your account");
-                                        }else {
-                                            Toaster.show(ProfileActivity.this,"Please link your Parent to your account");
-                                        }
-
-                                    }
-
-//                                    startActivity(new Intent(ProfileActivity.this,MainActivity.class));
-                                    }
-                                }
-                            });
-                        }}});
-
-
-
-
             }
         });
 
@@ -153,12 +97,12 @@ public class ProfileActivity extends AppCompatActivity {
 //        prflpic.setImageResource(2131165379);
 //        prflpic.setImageURI(Constants.profilePicture);
 
-        if (Constants.temppfp== R.drawable.user){
+        if (Constants.temppfp == R.drawable.user) {
             prflpic.setImageResource(R.drawable.user);
 //            Toaster.show(ProfileActivity.this,R.drawable.user+"use6r");
 //            Log.d("updatee",R.drawable.user+"");
 
-        }else {
+        } else {
             prflpic.setImageResource(Constants.temppfp);
 //            Toaster.show(ProfileActivity.this,Constants.temppfp+"temp");
 //            System.out.println(temppfp+"");
@@ -195,9 +139,9 @@ public class ProfileActivity extends AppCompatActivity {
                         String age = aget.getText().toString();
                         String phone = phonet.getText().toString();
                         String aboutme = aboutt.getText().toString();
-                        Constants.tmpabout=aboutme;
-                        Constants.tmpage=age;
-                        Constants.tmpphone=phone;
+                        Constants.tmpabout = aboutme;
+                        Constants.tmpage = age;
+                        Constants.tmpphone = phone;
 
 //                        startActivity(new Intent(ProfileActivity.this, selectWallpaper.class));
                     }
@@ -216,16 +160,15 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
 
-
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                startActivity(new Intent(ProfileActivity.this, MainActivity.class));
-                temppfp=pfp;
-                Constants.tmpage =Constants.age;
+                temppfp = pfp;
+                Constants.tmpage = Constants.age;
                 Constants.tmpabout = Constants.aboutme;
-                Constants.tmpphone=Constants.phone;
-                Constants.firstTimeOnProfile=true;
+                Constants.tmpphone = Constants.phone;
+                Constants.firstTimeOnProfile = true;
             }
         });
 
@@ -233,12 +176,12 @@ public class ProfileActivity extends AppCompatActivity {
 
     private boolean validInput(String age, String phone, String aboutme) {
 
-        if (temppfp== R.drawable.user){
-            Toaster.show(this,"Please select a picture");
+        if (temppfp == R.drawable.user) {
+            Toaster.show(this, "Please select a picture");
             return false;
         }
-        if (age.isEmpty()){
-            Toaster.show(this,"Age cannot be empty");
+        if (age.isEmpty()) {
+            Toaster.show(this, "Age cannot be empty");
             return false;
         }
 
@@ -247,13 +190,13 @@ public class ProfileActivity extends AppCompatActivity {
 //            return false;
 //        }
 
-        if (Integer.parseInt(age)<16){
-            Toaster.show(this,"You are too young to use this app");
+        if (Integer.parseInt(age) < 16) {
+            Toaster.show(this, "You are too young to use this app");
             return false;
         }
 
-        if (phone.isEmpty()){
-            Toaster.show(this,"Phone number cannot be empty");
+        if (phone.isEmpty()) {
+            Toaster.show(this, "Phone number cannot be empty");
             return false;
         }
 
@@ -262,34 +205,11 @@ public class ProfileActivity extends AppCompatActivity {
 //            return false;
 //        }
 
-        if (phone.charAt(0)=='0' || phone.length()!=9){
-            Toaster.show(this,"Please enter a valid phone number\n"+"example : 73 456 7890");
+        if (phone.charAt(0) == '0' || phone.length() != 9) {
+            Toaster.show(this, "Please enter a valid phone number\n" + "example : 73 456 7890");
 //            Toaster.show(this,);
             return false;
         }
-
-        if (aboutme.isEmpty()){
-            Toaster.show(this,"About me cannot be empty");
-            return false;
-        }
-
-//        if (Constants.noSpecialChars(aboutme)){
-//            Toaster.show(ProfileActivity.this,"About me cannot contain any special characters");
-//            return false;
-//        }
-
-        if (aboutme.length()<300){
-            Toaster.show(this,"About me has too little characters\n"+aboutme.length()+"/"+300);
-//            Toaster.show(this,aboutme.length()+"/"+500);
-            return false;
-        }
-
-        if (aboutme.length()>550){
-            Toaster.show(this,"About me has too many characters\n"+aboutme.length()+"/"+550);
-//            Toaster.show(this,aboutme.length()+"/"+500);
-            return false;
-        }
-
-        return true;
+        return false;
     }
 }

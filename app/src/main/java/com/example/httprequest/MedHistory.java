@@ -142,6 +142,8 @@ public class MedHistory extends AppCompatActivity {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Toaster.show(MedHistory.this,"successfully recorded");
+                                Intent intent = new Intent(MedHistory.this, ProfileActivity .class);
+                                startActivity(intent);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
